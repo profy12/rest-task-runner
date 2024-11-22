@@ -22,7 +22,7 @@ func main() {
 func runTask(c *gin.Context) {
 	task := c.Params.ByName("task")
 	log.Printf("Ask to run task %v", task)
-	cmd := exec.Command("task", task)
+	cmd := exec.Command("sudo", "task", task)
 	out, err := cmd.Output()
 	if err != nil {
 		c.JSON(200, gin.H{
