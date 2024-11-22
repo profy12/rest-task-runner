@@ -4,3 +4,9 @@ tasks:
   hello:
     cmds:
       - echo "Hello world !"
+  build:
+    cmds:
+      - CGO_ENABLED=0 go build -o bin/task-runner .
+  deploy:
+    cmds:
+      - scp bin/task-runner student@profy12-server.eddi.cloud:/home/student/
